@@ -1,5 +1,5 @@
 # Docker google-drive-ocamlfuse
-Docker image to mount a google drive with google-drive-ocamlfuse shared with the host (Fully Tested on Debian Buster Host, but should work on any Linux system).
+Docker image to mount a google drive with google-drive-ocamlfuse shared with the host (Fully Tested on Rocky Linux 9 host, but should work on any Linux system).
 
 ### Main Repository page (maintained by [@astrada](https://github.com/astrada)):
 (all issues that are not specifically docker related should be posted there) 
@@ -8,7 +8,7 @@ https://github.com/astrada/google-drive-ocamlfuse
 
 ### Docker Hub page:
 
-https://hub.docker.com/r/maltokyo/docker-google-drive-ocamlfuse
+https://hub.docker.com/r/rennsport/google-drive-ocamlfuse
 
 ### Environment Variables
 * `PUID`: User ID to run google-drive-ocamlfuse
@@ -56,7 +56,7 @@ maltokyo/docker-google-drive-ocamlfuse:0.7.19
 
 Docker Compose (recommended):
 
-Use the docker-compose file included at https://github.com/maltokyo/docker-google-drive-ocamlfuse
+Use the docker-compose file included in this repo
 
 ### Structure
 * `/mnt/gdrive`: Google Drive Fuse mount directory inside container
