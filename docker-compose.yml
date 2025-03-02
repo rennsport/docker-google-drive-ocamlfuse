@@ -1,15 +1,15 @@
-version: '3'
 services:
   google-drive-ocamlfuse:
     container_name: google-drive-ocamlfuse
-    image: maltokyo/docker-google-drive-ocamlfuse:0.7.26 # this version is in sync with the official google-drive-ocamlfuse release, starting at 0.7.19
+    image:  rennsport/google-drive-ocamlfuse:0.7.32 # tag in sync with google-drive-ocamlfuse release number; starts at 0.7.32
     restart: always
     environment:
-      # below are must have for first run only, after that comment them out!
+      # Leave CLIENT_ID, CLIENT_SECRET, VERIFICATION_CODE, and TEAM_DRIVE_ID commented out after first run
       #CLIENT_ID: "YOUR_CLIENT_ID"
       #CLIENT_SECRET: "YOUR_CLIENT_SECRET"
       #VERIFICATION_CODE: "YOUR_VERIFICATION_CODE"
-      MOUNT_OPTS: "nonempty,allow_other" #nonempty will ensure that it still will mount even if you have some leftover artefacts/rubbish inside the mount dir on your host. That is dangerous if you have something in there, so ensure it is empty when you begin
+      #TEAM_DRIVE_ID: "ADD_IF_NEEDED"
+      MOUNT_OPTS: "nonempty,allow_other"
     security_opt:
       - "apparmor:unconfined"
     cap_add:
@@ -18,5 +18,5 @@ services:
     devices:
       - "/dev/fuse"
     volumes:
-      - "./google-drive-ocamlfuse_local_data:/mnt/gdrive:shared" # change the first path to where you want to store your local data to sync with google drive
-      - "./google-drive-ocamlfuse_local_config:/config/.gdfuse/default" # change the first path to where you want to store your config data
+      - "./google-drive-ocamlfuse_local_data:/mnt/gdrive:shared"
+      - "./google-drive-ocamlfuse_local_config:/config/.gdfuse/default"
